@@ -8,10 +8,6 @@ Inicialmente é necessário configurar os requisitos para trabalharmos com o Doc
 
 Os requisitos são:
 - Docker Desktop for Windows
-- VS Code
-- VS Code Docker extension 
-- VS Code MySQL extension
-
 - [VS Code](https://code.visualstudio.com/download) - Editor de código open source.
 - [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) - Extensão do Docker para o VS Code, auxilia na edição dos arquivos de configuração.
 - [MySQL extension](https://marketplace.visualstudio.com/items?itemName=formulahendry.vscode-mysql) - Extensão do MySQL para o VS Code, permite gerenciar e realizar querys no MySQL.
