@@ -4,7 +4,7 @@ Hands-On para introdução dos conceitos do Docker.
 
 ### Requisitos
 
-Inicialmente é necessário configurar os requisitos para trabalharmos com o Docker.
+Inicialmente é necessário configurar os requisitos para trabalharmos com o Docker e realizarmos o hands-on.
 
 Os requisitos são:
 - Docker Desktop for Windows
