@@ -42,11 +42,13 @@ services:
   db:
     image: mysql:8.0
     restart: always
+    ports:
+      - 3306:3306
     environment:
       MYSQL_DATABASE: exampledb
       MYSQL_USER: exampleuser
       MYSQL_PASSWORD: examplepass
-      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+      MYSQL_ROOT_PASSWORD: Agl@1234  
     volumes:
       - db:/var/lib/mysql
 
@@ -83,10 +85,6 @@ Agora vamos executar novamente o comando `docker-compose up` e acessar o wordpre
 ![Wordpress 3](imagens/wordpress3.png)
 
 
-#### Passo 5
-
-Acessar o MySQL com o VS Code
-
 
 ## Documentação do Docker Compose
 
@@ -94,4 +92,4 @@ Para maiores detalhes sobre o Docker Compose, consultar a documentação abaixo:
 
 - [Documentação do Docker Compose](https://docs.docker.com/compose/)
 
-Próximo: [Atividade 07](07-atividade.md)
+Próximo: [Atividade 06](06-atividade.md)

@@ -1,59 +1,78 @@
 # Atividade 06
 
-## Docker Hub
+## Acessando os containeres 
 
-O Docker Hub é um repositório público de imagens de containers, onde diversas empresas e pessoas podem publicar imagens pré-compiladas de soluções. Essas soluções incluem desde WordPress, MySql e outras aplicações diversas.
-Nele, você encontra imagens prontas para uso, criadas por desenvolvedores da comunidade, projetos open-source e fornecedores de software independentes (ISVs).
-
-### Publicando uma imagem no Docker Hub
+Nesta atividade vamos acessar o prompt do container e acessar os dados do MySQL a partir do VS Code.
 
 #### Passo 1
 
-Abra um prompt de linha de comando e digite o comando `docker login`. Informe o usuário e senha que foi criado anteriormente.
+Vamos habilitar a conexão de fora do container do usuário root do MySQL, para isso vamos acessar o prompt do container do MySQL.
 
-![docker login](imagens/dockerhublogin.png)
+Executar o comando `docker ps` para listar os containeres que estão sendo executados. Copie o nome do container do MySQL.
+
+![docker ps](imagens/dockerps2.png)
 
 #### Passo 2
 
-Acesse o site do Docker Hub e faça login.
+Para acessar o bash do container do MySQL vamos usar o comando `docker exec -it handsondocker-db-1 /bin/bash`, sendo que handsondocker-db-1 é o nome do container.
 
-- [Docker Hub](https://hub.docker.com/)
+![bash](imagens/containerbash.png)
 
 #### Passo 3
 
-Na aba "Repositories", pegue o nome da conta, no exemplo da imagem é "mkshimao".
+Agora vamos logar no MySQL, usando o comando `mysql -u root -p`. Informar a senha "Agl@1234".
 
-![Docker Hub Web](imagens/dockerhubweb.png)
+![mysql](imagens/mysqlprompt.png)
 
 #### Passo 4
 
-TODO - criar uma tag para a imagem do tomcatsample
+Vamos habilitar o usuário para login externo, usando o comando `ALTER USER 'root' IDENTIFIED WITH mysql_native_password BY 'Agl@1234';`.
+
+![mysql](imagens/mysqlprompt2.png)
+
+#### Passo 5
+
+Vamos acessar o MySQL com o VS Code, para isso clicar no item "MYSQL" do panel Explorer do VS Code. E clicar no ícone "Add Connection".
+
+![mysql](imagens/mysqlpanel.png)
+
+Preencher o hostname com "localhost" e dar um enter.
+
+![mysql](imagens/mysqlconn1.png)
+
+Preencher o usuário com "root" e dar um enter.
+
+![mysql](imagens/mysqlconn2.png)
+
+Preencher a senha com "Agl@1234" e dar um enter.
+
+![mysql](imagens/mysqlconn3.png)
+
+Manter o valor 3306 no campo porta e dar um enter.
+
+![mysql](imagens/mysqlconn4.png)
+
+Manter o campo do certificado em branco e dar um enter
+
+![mysql](imagens/mysqlconn5.png)
+
+A conexão com o MySql vai aparecer no painel do VS Code.
+
+![mysql](imagens/mysqlpanel2.png)
 
 #### Passo 6
 
-Na linha de comando, executar o comando `docker images` para conferir se a imagem foi criada.
+Vamos fazer uma query na tabela wp_posts da base de dados exampledb. Para isso, clicar no ícone ">" e abrir a lista de tabelas da base de dados exampledb.
 
-![Docker images](imagens/dockerlistimage2.png)
+![mysql](imagens/mysqltables.png)
 
-Notar que a imagem foi gerada com a TAG latest, poderia ter ser o número da versão, como no caso do mysql que tem a tag "8.0".
+Clicar com o botão direito do mouse sobre a tabela wp_posts e clicar na opção "Select Top 1000".
 
-#### Passo 7
+![mysql](imagens/mysqlquery.png)
 
-Na linha de comando, executar o comando `docker push docker_id/nome_do_repositorio:TAG` para publicar a imagem, substituindo docker_id pelo nome da conta, nome_do_repositorio pelo nome da imagem e TAG por latest. No exemplo do handson o comando ficaria assim: `docker push mkshimao/tomcatsample:latest`.
+Será executado a query e apresentado o resultado no VS Code.
 
-![Docker push](imagens/dockerpush.png)
+![mysql](imagens/mysqlquery2.png)
 
-#### Passo 8
 
-Acesse o site do Docker Hub, na aba repositories, verifique se a imagem aparece na lista.
-
-![Docker Hub Images](imagens/dockerhubimages.png)
-
-Lembrando que essa imagem foi publicada na área pública e que está disponível para qualquer um acessar. Para projetos de clientes o ideal é publicar as imagens na área privada ou publicar num serviço de repositório privado, como do Azure.
-
-## Documentação do Docker Hub
-
-Para maiores detalhes sobre o Docker Hub, consultar a documentação abaixo:
-
-- [Documentação do Docker Hub](https://docs.docker.com/docker-hub/)
-
+Próximo: [Atividade 07](07-atividade.md)

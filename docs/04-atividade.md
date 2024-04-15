@@ -64,7 +64,7 @@ Verifique se na pasta C:\HandsOnDocker do Windows aparece o arquivo teste.txt.
 
 #### Passo 4
 
-Agora vamos trabalhar com volumes, vamos criar um volume usando o comando `docker volume create` com o nome de "dados".
+Agora vamos trabalhar com volumes, vamos criar um volume usando o comando `docker volume create dados` com o nome de "dados".
 
 ```bash
 C:\HandsOnDocker>docker volume create dados
@@ -78,6 +78,8 @@ local               dados
 #### Passo 5
 
 Crie agora um contêiner usando esse volume, para isso use o parâmetro `-v dados:/var/dados`, esse parâmetro mapea o volume dados para a pasta /var/dados do contêiner.
+
+Comando: `docker run -it --name servidor -v dados:/var/dados alpine`
 
 ```bash
 C:\HandsOnDocker>docker run -it --name servidor -v dados:/var/dados alpine
@@ -99,13 +101,15 @@ teste.txt
 
 Abra outra tela de linha de comando, vamos criar um outro contêiner usando o volume dados, dando um nome diferente do anterior. Verifique se o arquivo criado anteriormente está lá.
 
+Comando: `docker run -it --name servidor2 -v dados:/var/dados alpine`
+
 ```bash
 C:\HandsOnDocker>docker run -it --name servidor2 -v dados:/var/dados alpine
 ```
 
 #### Passo 8
 
-Crie um outro arquivo na pasta dados e vá para a tela do contêiner anterior e liste o conteúdo da pasta, você verá que o arquivo criado aparece, ou seja os dois contêineres estão compartilhando o mesmo volume. 
+Vá até a pasta dados e crie um outro arquivo chamado teste2.txt e vá para a tela do contêiner anterior e liste o conteúdo da pasta, você verá que o arquivo criado aparece, ou seja os dois contêineres estão compartilhando o mesmo volume. 
 
 ```bash
 /var/dados # ls

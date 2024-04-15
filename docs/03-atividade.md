@@ -11,7 +11,7 @@ Um Dockerfile é um documento de texto que contém todas as instruções necess�
 
 #### Passo 1
 
-Crie uma pasta no seu drive C: chamada HandsOnDocker e copie o arquivo SampleWebApp.war que está na pasta appjava para esta pasta.
+Crie uma pasta no seu drive C: chamada HandsOnDocker e copie o arquivo SampleWebApp.war que está na pasta appjava do projeto git para esta pasta.
 
 ```bash
 C:\HandsOnDocker>dir
